@@ -1,11 +1,16 @@
 Spaceship nb = new Spaceship();
 Stars[] pq = new Stars[250];
+Asteroids[] ds = new Asteroids[12]; 
 public void setup() 
 {
  size(500, 500);
  for (int i = 0; i < pq.length; i++)
   {
   pq[i] = new Stars();
+  }
+for (int r = 0; r < ds.length; r++)
+  {
+  ds[r] = new Asteroids();
   }
 }
 
@@ -18,6 +23,11 @@ public void draw()
   for (int i = 0; i < pq.length; i++)
  {
  pq[i].show();
+ }
+   for (int r = 0; r < ds.length; r++)
+ {
+ ds[r].show();
+ ds[r].move();
  }
 }
 
@@ -34,9 +44,12 @@ if (key == 'f')
   }
   if (key == 'i')
   {
-    nb.accelerate(4);
+    nb.accelerate(0.5);
   }
-  
+    if (key == 'k')
+  {
+    nb.accelerate(-0.1);
+  }
   if(key == 'j')
   {
     nb.turn(-10);
