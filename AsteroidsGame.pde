@@ -4,6 +4,7 @@ Stars[] pq = new Stars[250];
 //Asteroids[] ds = new Asteroids[10]; 
 ArrayList <Asteroids> ds = new ArrayList <Asteroids>();
 ArrayList <Bullet> pp = new ArrayList <Bullet>();
+int life = 200;
 
 public void setup() 
 {
@@ -18,10 +19,6 @@ for (int r = 0; r < 10; r++)
    ds.add(new Asteroids());
  
   }
-  //for (int w = 0; w < 10; w++)
-  //{
-  // pp.add(new Bullet());
-  //}
 
 }
 
@@ -32,7 +29,7 @@ public void draw()
   //nb.move();
   //pp.show();
   //pp.move();
-  int life = 200;
+
   
   for (int i = 0; i < pq.length; i++)
  {
@@ -51,17 +48,24 @@ public void draw()
   ds.get(r).show();
   ds.get(r).move();
   
-  
-  fill(#4C8E2C);
-  rect(10,10,life,10);
- {
- if (dist(ds.get(r).getX(),ds.get(r).getY(),nb.getX(), nb.getY()) < 30)
- {
- life = life - 10;
- ds.remove(r);
- break;
- }
- }
+  //fill(#B70000);
+  //rect(10,10,200,10);
+  //fill(#4C8E2C);
+  //rect(10,10,life,10);
+ //{
+ //if (dist(ds.get(r).getX(),ds.get(r).getY(),nb.getX(), nb.getY()) < 20)
+ //{
+ //life = life - 10;
+ //if (life <= 1){
+ //  life = 0;
+ //  //background(0);
+ //  //textSize (50);
+ //  //text("GAME OVER", 50, 50);
+ //}
+ ////ds.remove(r);
+ //break;
+ //}
+ //}
  
  
  for (int w = 0; w < pp.size(); w++)
@@ -100,7 +104,7 @@ public void draw()
 
 public void keyPressed()
 {
-if (key == 'f')
+if (key == 'd')
   {
   nb.setX((int)(Math.random()*450));
   nb.setY((int)(Math.random()*450));
@@ -128,10 +132,10 @@ if (key == 'f')
   {
      nb.turn(10);
   }
-  
-    if(key == 'v');
+     if(key == 'f')
   {
-    pp.add(new Bullet(nb));
- }
- 
+      pp.add(new Bullet(nb));
+  }
+
+
   }
